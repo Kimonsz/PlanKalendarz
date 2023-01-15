@@ -7,15 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Wheat">
-        <ListBox Margin="20" Name="ListBoxOfItems">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <DockPanel >
+            <Label Content="Lista Eventów" Height="40" Width="130" DockPanel.Dock="Top" FontSize="20"/>
+            <ListBox Margin="20" Name="ListBoxOfItems" DockPanel.Dock="Bottom">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="16" Text="{Binding}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
 
     </Grid>
 </UserControl>

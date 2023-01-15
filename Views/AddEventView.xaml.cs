@@ -28,6 +28,7 @@ namespace PlanKalendarz.Views
         private void DodajEvent(object sender, RoutedEventArgs e)
         {
             CallendarClass.AddEventViewModel(EventNameBox.Text);
+            EventNameBox.Text = null;
         }
 
     }

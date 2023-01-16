@@ -20,7 +20,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </DockPanel>
-            <Button x:Name="DeleteEventButtton" IsEnabled="False" Content="Usun" Width="60" Height="30" FontSize="18" HorizontalAlignment="Right" Margin="10,0,90,0" Click="DeleteEventFromList"/>
+            <Button x:Name="DeleteEventButtton" IsEnabled="{Binding}" Content="Usun" Width="60" Height="30" FontSize="18" HorizontalAlignment="Right" Margin="10,0,90,0" Click="DeleteEventFromList"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -24,16 +24,17 @@ namespace PlanKalendarz.Views
         {
             InitializeComponent();
             ListBoxOfItems.ItemsSource = CallendarClass.GetEventsList();
+            DeleteEventButtton.IsEnabled = false;
         }
 
         private void DeleteEventFromList(object sender, RoutedEventArgs e)
         {
-
+            var toDelete = ListBoxOfItems.SelectedItems;
         }
 
         private void ListBoxOfItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            DeleteEventButtton.IsEnabled = true;
         }
     }
 }

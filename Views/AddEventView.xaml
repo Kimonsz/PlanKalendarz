@@ -15,7 +15,7 @@
         <StackPanel>
             <DockPanel Margin="10,10,10,10" Grid.Row="0">
                 <Label Content="Nazwa Eventu :" Margin="0,0,20,0" FontSize="18"/>
-                <TextBox x:Name="EventNameBox" Width="400" HorizontalAlignment="Left"></TextBox>
+                <TextBox x:Name="EventNameBox" Width="400" HorizontalAlignment="Left" FontSize="16" />
             </DockPanel>
             <DockPanel Grid.Row="1">
                 <Button x:Name="ConfirmAdd" Grid.Row="1" Content="Dodaj" Width="70" Height="30" FontSize="18" Click="DodajEvent" HorizontalAlignment="Right" Margin="0,0,40,0"/>

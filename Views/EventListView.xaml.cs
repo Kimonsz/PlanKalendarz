@@ -29,7 +29,10 @@ namespace PlanKalendarz.Views
 
         private void DeleteEventFromList(object sender, RoutedEventArgs e)
         {
-            var toDelete = ListBoxOfItems.SelectedItems;
+            var toDelete = ListBoxOfItems.SelectedItems[0];
+            CallendarClass.DeleteEventByName(toDelete.ToString());
+            ListBoxOfItems.ItemsSource = CallendarClass.GetEventsList();
+
         }
 
         private void ListBoxOfItems_SelectionChanged(object sender, SelectionChangedEventArgs e)

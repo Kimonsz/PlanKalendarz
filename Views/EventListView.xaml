@@ -9,6 +9,7 @@
     <Grid Background="Wheat">
         <StackPanel>
             <DockPanel >
+                
                 <Label Content="Lista Eventów" Height="40" Width="130" DockPanel.Dock="Top" FontSize="20"/>
                 <ListBox Margin="20,20,20,0" Width="600" Height="300" Name="ListBoxOfItems" DockPanel.Dock="Bottom" SelectionChanged="ListBoxOfItems_SelectionChanged">
                     <ListBox.ItemTemplate>

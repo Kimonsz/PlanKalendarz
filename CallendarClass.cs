@@ -15,7 +15,7 @@ namespace PlanKalendarz
         {
             events.Add(new Event(name));
         }
-
+        
         public static List<String> GetEventsList()
         {
             List<String> m = new();
@@ -24,6 +24,18 @@ namespace PlanKalendarz
                 m.Add(x.Name);
             }
             return m;
+        }
+
+        public static void DeleteEventByName(string name)
+        {
+            foreach(Event x in events)
+            {
+                if(x.Name.Equals(name))
+                {
+                    events.Remove(x);
+                    break;
+                }
+            }
         }
 
     }

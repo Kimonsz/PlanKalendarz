@@ -10,7 +10,7 @@
         <StackPanel>
             <DockPanel >
                 <Label Content="Lista Eventów" Height="40" Width="130" DockPanel.Dock="Top" FontSize="20"/>
-                <ListBox Margin="20,20,20,0" Width="600" Height="300" Name="ListBoxOfItems" DockPanel.Dock="Bottom">
+                <ListBox Margin="20,20,20,0" Width="600" Height="300" Name="ListBoxOfItems" DockPanel.Dock="Bottom" SelectionChanged="ListBoxOfItems_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -20,7 +20,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </DockPanel>
-            <Button Content="Usun" Width="60" Height="30" FontSize="18" HorizontalAlignment="Right" Margin="10,0,110,0"/>
+            <Button x:Name="DeleteEventButtton" IsEnabled="False" Content="Usun" Width="60" Height="30" FontSize="18" HorizontalAlignment="Right" Margin="10,0,90,0" Click="DeleteEventFromList"/>
         </StackPanel>
     </Grid>
 </UserControl>

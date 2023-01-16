@@ -26,5 +26,14 @@ namespace PlanKalendarz.Views
             ListBoxOfItems.ItemsSource = CallendarClass.GetEventsList();
         }
 
+        private void DeleteEventFromList(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListBoxOfItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

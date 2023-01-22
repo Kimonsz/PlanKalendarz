@@ -21,21 +21,21 @@
             <Label Content="Nazwa Eventu :" Margin="0,0,10,0" FontSize="18"/>
             <TextBox x:Name="EventNameBox" Width="400" HorizontalAlignment="Left" FontSize="16" Height="30" VerticalAlignment="Top" Margin="0,5,0,0"/>
         </DockPanel>
-            
+
         <DockPanel Grid.Row="1">
             <Label Content="Powiadomienie :" FontSize="18" Margin="10,0,0,0"/>
-            <ComboBox Width="105" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <ComboBox x:Name="NotifyBool" Width="105" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
                 <ComboBoxItem Content="Po evencie"/>
                 <ComboBoxItem Content="Przed eventem"/>
             </ComboBox>
         </DockPanel>
-        <DockPanel Grid.Row="2">
+        <DockPanel Grid.Row="2" >
             <Label Content="Dni :" FontSize="18" Margin="10,0,0,0"/>
-            <TextBox Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10" />
+            <TextBox x:Name="NotifyDay" Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10" />
             <Label Content="Godziny :" FontSize="18"/>
-            <TextBox Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10" />
+            <TextBox x:Name="NotifyHour" Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10" />
             <Label Content="Minuty :" FontSize="18"/>
-            <TextBox Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10" />
+            <TextBox x:Name="NotifyMinute" Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10" />
         </DockPanel>
         <DockPanel Grid.Row="3">
             <Label Content="Checklista :" FontSize="18" Margin="10,0,0,0"/>

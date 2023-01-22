@@ -28,8 +28,55 @@ namespace PlanKalendarz.Views
 
         private void DodajEvent(object sender, RoutedEventArgs e)
         {
-            CallendarClass.AddEventViewModel(EventNameBox.Text);
+            bool notesBool;
+            if (EventNotesCheckBox.IsChecked == true)
+            {
+                notesBool = true;
+            }
+            else
+            {
+                notesBool = false;
+            }
+
+            bool checklistBool;
+            if (EventChecklistCheckBox.IsChecked == true)
+            {
+                checklistBool = true;
+            }
+            else
+            {
+                checklistBool = false;
+            }
+
+            if (NotifyBool.SelectedIndex==-1)
+            {
+                CallendarClass.AddEventViewModel(EventNameBox.Text, notesBool, checklistBool);
+            }
+            else
+            {
+                bool notifyBool = false;
+                if (NotifyBool.SelectedIndex == 0)
+                {
+                    notifyBool = false;
+                }
+                else if (NotifyBool.SelectedIndex == 1)
+                {
+                    notifyBool = true;
+                }      
+
+                //string name, bool notes, bool checklist,bool notifybefore,string notifyDay, string notifyHour,string notifyMinute
+                CallendarClass.AddEventViewModel(EventNameBox.Text, notesBool, checklistBool, notifyBool, NotifyDay.Text, NotifyHour.Text, NotifyMinute.Text);
+            }
+            
+            
             EventNameBox.Text = null;
+            NotifyBool.SelectedIndex = -1;
+            EventChecklistCheckBox.IsChecked = false;
+            EventNotesCheckBox.IsChecked = false;
+            NotifyDay.Text = null;
+            NotifyHour.Text = null;
+            NotifyMinute.Text = null;
+
         }
 
         private void NumbersOnly(object sender, TextCompositionEventArgs e)

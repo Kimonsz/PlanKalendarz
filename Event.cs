@@ -14,6 +14,13 @@ namespace PlanKalendarz
         List<String> eventChecklist;
         List<String> eventNotes;
         int eventCyclesNumber;
+        int notifyHour;
+        int notifyDay;
+        int notifyMinute;
+        bool notes;
+        bool checklist;
+        bool notifyBefore;      //false=przed   true=po
+
 
         public Event(string name, DateTime eventTime, DateTime eventReminder, List<string> eventChecklist, List<string> eventNotes, int eventCyclesNumber)
         {
@@ -28,6 +35,38 @@ namespace PlanKalendarz
         public Event(string name)
         {
             this.name = name;
+        }
+
+        public Event(string name, bool notes, bool checklist)
+        {
+            this.name = name;
+            this.notes = notes;
+            this.checklist = checklist;
+
+        }
+
+        public Event(string name, bool notes, bool checklist,bool notifybefore,string notifyDay, string notifyHour,string notifyMinute)
+        {
+            this.name = name;
+            this.notes = notes;
+            this.checklist = checklist;
+            this.notifyBefore = notifybefore;
+
+            if (!string.IsNullOrEmpty(notifyDay))
+                this.notifyDay = Convert.ToInt32(notifyDay);
+            else
+                this.notifyDay = 0;
+
+            if (!string.IsNullOrEmpty(notifyHour))
+                this.notifyHour = Convert.ToInt32(notifyHour);
+            else
+                this.notifyHour = 0;
+
+            if (!string.IsNullOrEmpty(notifyMinute))
+                this.notifyMinute = Convert.ToInt32(notifyMinute);
+            else
+                this.notifyMinute = 0;
+
         }
 
         public string Name 

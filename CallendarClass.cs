@@ -15,6 +15,18 @@ namespace PlanKalendarz
         {
             events.Add(new Event(name));
         }
+
+        public static void AddEventViewModel(string name, bool notes, bool checklist)
+        {
+            //string name, bool notes, bool checklist,bool notifybefore,string notifyDay, string notifyHour,string notifyMinute
+            events.Add(new Event(name, notes, checklist));
+        }
+
+        public static void AddEventViewModel(string name,bool notes,bool checklist,bool notifybefore, string notifyDay, string notifyHour, string notifyMinute)
+        {
+            //string name, bool notes, bool checklist,bool notifybefore,string notifyDay, string notifyHour,string notifyMinute
+            events.Add(new Event(name,notes,checklist,notifybefore,notifyDay,notifyHour,notifyMinute));
+        }
         
         public static List<String> GetEventsList()
         {

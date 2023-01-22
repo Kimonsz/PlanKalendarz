@@ -24,5 +24,10 @@ namespace PlanKalendarz.Views
         {
             InitializeComponent();
         }
+
+        private void DatesChenged(object sender, SelectionChangedEventArgs e)
+        {
+            AddActiveEvent.IsEnabled = true;
+        }
     }
 }

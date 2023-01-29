@@ -23,7 +23,7 @@ namespace PlanKalendarz.Views
         public EventListView()
         {
             InitializeComponent();
-            ListBoxOfItems.ItemsSource = CallendarClass.GetEventsList();
+            ListBoxOfItems.ItemsSource = CallendarClass.GetEventsListName();
             DeleteEventButtton.IsEnabled = false;
         }
 
@@ -31,7 +31,7 @@ namespace PlanKalendarz.Views
         {
             var toDelete = ListBoxOfItems.SelectedItems[0];
             CallendarClass.DeleteEventByName(toDelete.ToString());
-            ListBoxOfItems.ItemsSource = CallendarClass.GetEventsList();
+            ListBoxOfItems.ItemsSource = CallendarClass.GetEventsListName();
 
         }
 

@@ -21,14 +21,26 @@ namespace PlanKalendarz.Views
     /// </summary>
     public partial class AddActiveEventView : UserControl
     {
+        Event choosenEvent;
+        DateTime pickedDate;
+        List<string> checklistPreview;
+
         public AddActiveEventView()
         {
             InitializeComponent();
+            checklistPreview = new();
+        }
+
+        public AddActiveEventView(DateTime pickedDate)
+        {
+            InitializeComponent();
+            this.pickedDate = pickedDate;
+            checklistPreview = new();
         }
 
         private void ComboLoaded(object sender, RoutedEventArgs e)
         {
-            foreach (string x in CallendarClass.GetEventsList())
+            foreach (string x in CallendarClass.GetEventsListName())
             {
                 EventNameComboBox.Items.Add(x);
             }
@@ -37,7 +49,34 @@ namespace PlanKalendarz.Views
 
         private void ConfirmAdd_Click(object sender, RoutedEventArgs e)
         {
+            choosenEvent.EventTime=pickedDate;
+            CallendarClass.activeEvents.Add(choosenEvent);
             Application.Current.MainWindow.DataContext = new KalendarzMain(); //inna nazwa przez błędy projektu
+        }
+
+        private void EventChoosen(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                choosenEvent = CallendarClass.GetEventByName(EventNameComboBox.SelectedItem.ToString());
+            }catch
+            {
+                throw;
+            }
+
+            // false=przed   true=po
+            // 0=NULL -1=False 1=True
+            int notifyInfo = choosenEvent.GetNotifyInfo();
+            if (notifyInfo!=0)
+            {
+                NotificationDateLabel.Content = choosenEvent.GetNotificationDate(pickedDate);
+            }
+
+            //clearing form stage
+            CheckListElement.Text = string.Empty;
+            checklistPreview.Clear();
+            PreviewOfChecklist.ItemsSource = checklistPreview;
+            TakeNote.Text = string.Empty;
         }
     }
 } 

@@ -14,7 +14,7 @@
         <Viewbox Grid.Row="0">
             <Calendar x:Name="MainViewCallendar" SelectedDatesChanged="DatesChenged"></Calendar>
         </Viewbox>
-        <Label x:Name="DisplayEventName" Grid.Row="1" Content="" Width="500" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+        <Label Background="Azure" x:Name="DisplayEventName" Grid.Row="1" Content="" Width="500" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="20,0,0,0"/>
         <Button Grid.Row="1" IsEnabled="False" x:Name="AddActiveEvent" Width="100" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Content="Dodaj Event" FontSize="18" Click="AddActiveEvent_Click"/>
     </Grid>
 </UserControl>

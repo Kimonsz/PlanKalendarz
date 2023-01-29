@@ -10,7 +10,7 @@ namespace PlanKalendarz
     {
         String name;
         DateTime eventTime;
-        DateTime eventReminder;
+        private DateTime eventReminder;
         List<String> eventChecklist;
         List<String> eventNotes;
         int eventCyclesNumber;
@@ -19,7 +19,8 @@ namespace PlanKalendarz
         int notifyMinute;
         bool notes;
         bool checklist;
-        bool notifyBefore;      //false=przed   true=po
+        bool? notifyBefore;      // false=przed   true=po
+                                 // 0=NULL -1=False 1=True
 
 
         public Event(string name, DateTime eventTime, DateTime eventReminder, List<string> eventChecklist, List<string> eventNotes, int eventCyclesNumber)
@@ -45,6 +46,7 @@ namespace PlanKalendarz
 
         }
 
+        //most commonly used constructor (In AddEventView)
         public Event(string name, bool notes, bool checklist,bool notifybefore,string notifyDay, string notifyHour,string notifyMinute)
         {
             this.name = name;
@@ -68,6 +70,34 @@ namespace PlanKalendarz
                 this.notifyMinute = 0;
 
         }
+        public string GetNotificationDate(DateTime choosenTime)
+        {
+            this.SetNotificationDate(choosenTime);
+
+            return eventReminder.ToString();
+        }
+        public void SetNotificationDate(DateTime choosenTime)
+        {
+            DateTime currentDate = DateTime.Now;
+            int currentYear = currentDate.Year;
+            int currentMonth = currentDate.Month;
+
+            int notInfo = this.GetNotifyInfo();
+            // false=przed   true=po
+            // 0=NULL -1=False 1=True
+
+            if (notInfo != 0)   //add or substract from choosen date set before time of notification
+            {
+                if (notInfo == -1)
+                {
+                    this.eventReminder = choosenTime.Subtract(new TimeSpan(this.notifyDay, this.notifyHour, this.notifyMinute, 0));
+;                }
+                else
+                {
+                    this.eventReminder = choosenTime.Add(new TimeSpan(this.notifyDay, this.notifyHour, this.notifyMinute, 0));
+                }
+            }
+        }
 
         public string Name 
         { 
@@ -79,7 +109,7 @@ namespace PlanKalendarz
             get => eventTime; 
             set => eventTime = value; 
         }
-        public DateTime EventReminder 
+        private DateTime EventReminder 
         {
             get => eventReminder; 
             set => eventReminder = value; 
@@ -98,6 +128,22 @@ namespace PlanKalendarz
         { 
             get => eventCyclesNumber; 
             set => eventCyclesNumber = value; 
+        }
+        public int GetNotifyInfo() 
+        {
+            // 0=NULL -1=False 1=True
+            if (this.notifyBefore == null)
+            {
+                return 0;
+            }
+            else if (this.notifyBefore == true)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }

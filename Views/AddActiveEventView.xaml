@@ -19,18 +19,18 @@
 
         <DockPanel Margin="10,10,10,10" Grid.Row="0">
             <Label Content="Event :" Margin="0,0,10,0" FontSize="18"/>
-            <ComboBox x:Name="EventNameComboBox"   Width="400" HorizontalAlignment="Left" FontSize="16" Height="30" VerticalAlignment="Top" Margin="30,5,0,0" Loaded="ComboLoaded"/>
+            <ComboBox x:Name="EventNameComboBox"   Width="400" HorizontalAlignment="Left" FontSize="16" Height="30" VerticalAlignment="Top" Margin="30,5,0,0" Loaded="ComboLoaded" SelectionChanged="EventChoosen"/>
         </DockPanel>
 
         <DockPanel Grid.Row="1">
             <Label Content="Powiadomienie :" FontSize="18" Margin="10,0,0,0"/>
-            <Label Content="brak" FontSize="15" Margin="5"/>
+            <Label x:Name="NotificationDateLabel" Content="brak" FontSize="15" Margin="5"/>
         </DockPanel>
         <StackPanel Grid.Row="3">
             <Label Content="Checklista :" FontSize="18" Margin="10,0,0,0"/>
             <TextBox x:Name="CheckListElement" Width="400" HorizontalAlignment="Left" FontSize="16" Height="30" VerticalAlignment="Top" Margin="10,5,0,0"/>
             <Button x:Name="AddtoChecklist" Content="Dodaj" Width="70" Height="30" FontSize="18" HorizontalAlignment="Right" Margin="0,-30,90,0"/>
-            <ListBox ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="400" Height="80" HorizontalAlignment="Left" Margin="10"/>
+            <ListBox x:Name="PreviewOfChecklist" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="400" Height="80" HorizontalAlignment="Left" Margin="10"/>
 
 
         </StackPanel>

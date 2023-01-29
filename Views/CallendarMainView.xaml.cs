@@ -39,7 +39,8 @@ namespace PlanKalendarz.Views
 
         private void AddActiveEvent_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.DataContext = new AddActiveEventView();
+            DateTime selectedDate = (DateTime)MainViewCallendar.SelectedDate;
+            Application.Current.MainWindow.DataContext = new AddActiveEventView(selectedDate);
         }
     }
 }

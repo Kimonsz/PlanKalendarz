@@ -29,7 +29,7 @@ namespace PlanKalendarz
             events.Add(new Event(name,notes,checklist,notifybefore,notifyDay,notifyHour,notifyMinute));
         }
 
-        public static List<String> GetEventsList()
+        public static List<String> GetEventsListName()
         {
             List<String> m = new();
             foreach (Event x in events)
@@ -49,6 +49,18 @@ namespace PlanKalendarz
                     break;
                 }
             }
+        }
+
+        public static Event GetEventByName(string name)
+        {
+            foreach (Event x in events)
+            {
+                if (x.Name.Equals(name))
+                {
+                    return x;
+                }
+            }
+            return null;
         }
 
     }

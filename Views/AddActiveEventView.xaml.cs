@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PlanKalendarz.Views;
 
 namespace PlanKalendarz.Views
 {
@@ -27,11 +28,16 @@ namespace PlanKalendarz.Views
 
         private void ComboLoaded(object sender, RoutedEventArgs e)
         {
-            foreach(string x in CallendarClass.GetEventsList())
+            foreach (string x in CallendarClass.GetEventsList())
             {
                 EventNameComboBox.Items.Add(x);
             }
-            
+
+        }
+
+        private void ConfirmAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.DataContext = new KalendarzMain(); //inna nazwa przez błędy projektu
         }
     }
-}
+} 

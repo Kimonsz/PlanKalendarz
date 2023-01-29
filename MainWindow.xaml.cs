@@ -21,7 +21,7 @@ namespace PlanKalendarz
     /// </summary>
     public partial class MainWindow : Window
     {
-        CallendarMainViewModel CallendarView = new();
+        public CallendarMainViewModel CallendarView = new();
         public MainWindow()
         {
             InitializeComponent();

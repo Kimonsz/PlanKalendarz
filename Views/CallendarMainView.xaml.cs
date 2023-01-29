@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PlanKalendarz;
+using PlanKalendarz.Views;
 
 namespace PlanKalendarz.Views
 {
@@ -39,8 +39,7 @@ namespace PlanKalendarz.Views
 
         private void AddActiveEvent_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new AddActiveEventView();
-            
+            Application.Current.MainWindow.DataContext = new AddActiveEventView();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace PlanKalendarz
     public static class CallendarClass
     {
         static List<Event> events = new();
+        public static List<Event> activeEvents = new();
 
         public static void AddEventViewModel(string name)
         {
@@ -27,7 +28,7 @@ namespace PlanKalendarz
             //string name, bool notes, bool checklist,bool notifybefore,string notifyDay, string notifyHour,string notifyMinute
             events.Add(new Event(name,notes,checklist,notifybefore,notifyDay,notifyHour,notifyMinute));
         }
-        
+
         public static List<String> GetEventsList()
         {
             List<String> m = new();

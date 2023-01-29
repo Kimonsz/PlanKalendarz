@@ -25,6 +25,10 @@
         <DataTemplate x:Name="NotificationsTemplate" DataType="{x:Type viewmodels:NotificationsViewModel}">
             <views:NotificationsView DataContext="{Binding}"/>
         </DataTemplate>
+
+        <DataTemplate x:Name="AddActiveEventTemplate" DataType="{x:Type viewmodels:AddActiveEventViewModel}">
+            <views:AddActiveEventView DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,7 +43,7 @@
                 <Button Content="Powiadomienia" Margin="10,0,10,20" Height="30" FontSize="18" Click="NotificationsClick"/>
             </StackPanel>
         </DockPanel>
-        <ContentControl Grid.Column="1" Content="{Binding}"/>
+        <ContentControl x:Name="MainViewContentHolder" Grid.Column="1" Content="{Binding}"/>
 
     </Grid>
 </Window>

@@ -28,6 +28,11 @@ namespace PlanKalendarz
             DataContext = CallendarView;
         }
 
+        public void ChangeView<T>(T view)       //changes view from another views 
+        {
+            DataContext = view;
+        }
+
         private void EventCick(object sender, RoutedEventArgs e)
         {
             DataContext = new AddEventViewModel();

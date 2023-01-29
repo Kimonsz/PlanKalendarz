@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PlanKalendarz;
 
 namespace PlanKalendarz.Views
 {
@@ -28,6 +29,18 @@ namespace PlanKalendarz.Views
         private void DatesChenged(object sender, SelectionChangedEventArgs e)
         {
             AddActiveEvent.IsEnabled = true;
+            DateTime selectedDate = (DateTime)MainViewCallendar.SelectedDate;
+            foreach(Event x in CallendarClass.activeEvents)
+            {
+                if (selectedDate == x.EventTime)
+                    DisplayEventName.Content = x.Name;
+            }
+        }
+
+        private void AddActiveEvent_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new AddActiveEventView();
+            
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlanKalendarz
 {
-    class Event
+    public class Event
     {
         String name;
         DateTime eventTime;

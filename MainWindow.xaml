@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PlanKalendarz"
         xmlns:viewmodels="clr-namespace:PlanKalendarz.ViewModels"
         xmlns:views="clr-namespace:PlanKalendarz.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="PlanKalendarz" Height="450" Width="800">
     <Window.Resources>
         <!--nazwy views inne niż w folderze bo po zmianie nazwy nie widzi nowych-->
         <DataTemplate x:Name="CallenarMainViewTemplate" DataType="{x:Type viewmodels:CallendarMainViewModel}">
@@ -29,7 +28,7 @@
         <DataTemplate x:Name="AddActiveEventTemplate" DataType="{x:Type viewmodels:AddActiveEventViewModel}">
             <views:AddActiveEventView DataContext="{Binding}"/>
         </DataTemplate>
-        
+
         <DataTemplate x:Name="AddActiveQuickEventTemplate" DataType="{x:Type viewmodels:AddActiveQuickEventViewModel}">
             <views:AddActiveQuickEventView DataContext="{Binding}"/>
         </DataTemplate>
@@ -38,7 +37,7 @@
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="MainMenu" Width="180"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <DockPanel Background="LightGray" Grid.Column="0">
             <Button x:Name="MenuHideButton" DockPanel.Dock="Top" Width="30" Height="30" HorizontalAlignment="Right" Click="MenuHideButtonClick">X</Button>
@@ -49,7 +48,7 @@
                 <Button x:Name="NotifyViewButton" Content="Powiadomienia" Margin="0,0,0,10" Height="30" FontSize="18" Click="NotificationsClick"/>
             </StackPanel>
         </DockPanel>
-        <ContentControl x:Name="MainViewContentHolder" Grid.Column="1" Content="{Binding}"/>
+        <ContentControl x:Name="MainViewContentHolder" Grid.Column="1" Content="{Binding}" HorizontalAlignment="Center" Width="620"/>
 
     </Grid>
 </Window>

@@ -66,7 +66,7 @@ namespace PlanKalendarz
             else
             {
                 MainMenu.Width = new GridLength(180);
-                AddEventViewButton.Content = "Dodaj event";
+                AddEventViewButton.Content = "Dodaj quick event";
                 CallendarViewButton.Content = "Kalendarz";
                 EventListViewButton.Content = "Lista Eventów";
                 NotifyViewButton.Content = "Powiadomienia";

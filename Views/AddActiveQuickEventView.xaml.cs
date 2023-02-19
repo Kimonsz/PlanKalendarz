@@ -58,5 +58,14 @@ namespace PlanKalendarz.Views
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void AddtoChecklist_Click(object sender, RoutedEventArgs e)
+        {
+            if(!string.IsNullOrEmpty(CheckListElement.Text))
+            {
+                PreviewOfChecklist.Items.Add(CheckListElement.Text);
+                checklist.Add(CheckListElement.Text);
+            }                
+        }
     }
 }

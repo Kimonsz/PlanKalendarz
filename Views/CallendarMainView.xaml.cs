@@ -28,22 +28,20 @@ namespace PlanKalendarz.Views
 
         private void DatesChenged(object sender, SelectionChangedEventArgs e)
         {
+            DisplayEventName.Items.Clear();
             AddActiveEvent.IsEnabled = true;
             AddActiveQuickEvent.IsEnabled = true;
-            bool contentChanged = false;
+
             DateTime selectedDate = (DateTime)MainViewCallendar.SelectedDate;
 
             foreach(Event x in CallendarClass.activeEvents)
             {
                 if (selectedDate == x.EventTime)
                 {
-                    DisplayEventName.Content = x.Name;
-                    contentChanged = true;
-                }
-                    
-            }
-            if (!contentChanged)
-                DisplayEventName.Content = "";
+                    //layEventName.Content = x.Name;
+                    DisplayEventName.Items.Add(x.Name);
+                }                  
+            }             
         }
 
         private void AddActiveEvent_Click(object sender, RoutedEventArgs e)

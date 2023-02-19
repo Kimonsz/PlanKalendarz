@@ -23,19 +23,19 @@ namespace PlanKalendarz.Views
     {
         Event choosenEvent;
         DateTime pickedDate;
-        List<string> checklistPreview;
+        List<string> checklist;
 
         public AddActiveEventView()
         {
             InitializeComponent();
-            checklistPreview = new();
+            checklist = new();
         }
 
         public AddActiveEventView(DateTime pickedDate)
         {
             InitializeComponent();
             this.pickedDate = pickedDate;
-            checklistPreview = new();
+            checklist = new();
         }
 
         private void ComboLoaded(object sender, RoutedEventArgs e)
@@ -76,9 +76,18 @@ namespace PlanKalendarz.Views
 
             //clearing form 
             CheckListElement.Text = string.Empty;
-            checklistPreview.Clear();
-            PreviewOfChecklist.ItemsSource = checklistPreview;
+            checklist.Clear();
+            PreviewOfChecklist.ItemsSource = checklist;
             TakeNote.Text = string.Empty;
+        }
+
+        private void AddtoChecklist_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(CheckListElement.Text))
+            {
+                PreviewOfChecklist.Items.Add(CheckListElement.Text);
+                checklist.Add(CheckListElement.Text);
+            }
         }
     }
 } 

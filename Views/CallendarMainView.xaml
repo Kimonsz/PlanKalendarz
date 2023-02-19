@@ -11,11 +11,18 @@
             <RowDefinition Height="5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Viewbox Grid.Row="0">
-            <Calendar Margin="-80,0,0,0" x:Name="MainViewCallendar" SelectedDatesChanged="DatesChenged"></Calendar>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Row="0" Grid.Column="0">
+            <Calendar x:Name="MainViewCallendar" SelectedDatesChanged="DatesChenged"></Calendar>
         </Viewbox>
-        <Label Background="Azure" x:Name="DisplayEventName" Grid.Row="1" Content="" Width="500" Height="40" FontSize="18" HorizontalAlignment="Left" Margin="20,0,0,0"/>
-        <Button Grid.Row="0" IsEnabled="False" x:Name="AddActiveEvent" Width="160" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,80" Content="Dodaj Event" FontSize="18" Click="AddActiveQuickEvent_Click"/>
-        <Button Grid.Row="0" IsEnabled="False" x:Name="AddActiveQuickEvent" Width="160" Height="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Content="Dodaj Quick Event" FontSize="18" Click="AddActiveEvent_Click"/>
-    </Grid>
+        <ListBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"  ScrollViewer.VerticalScrollBarVisibility="Visible" Background="Azure" x:Name="DisplayEventName"/>
+
+        <DockPanel Grid.Row="1">
+            <Button  IsEnabled="False" x:Name="AddActiveEvent" Width="160" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Content="Dodaj Event" FontSize="18" Click="AddActiveQuickEvent_Click"/>
+            <Button  IsEnabled="False" x:Name="AddActiveQuickEvent" Width="160" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Content="Dodaj Quick Event" FontSize="18" Click="AddActiveEvent_Click"/>
+        </DockPanel>
+        </Grid>
 </UserControl>

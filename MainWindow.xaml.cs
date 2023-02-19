@@ -55,17 +55,17 @@ namespace PlanKalendarz
 
         private void MenuHideButtonClick(object sender, RoutedEventArgs e)
         {
-            if (MainMenu.Width.Value == 200)
+            if (MainMenu.Width.Value == 180)
             {
                 MainMenu.Width = new GridLength(30);
                 AddEventViewButton.Content = "E";
                 CallendarViewButton.Content = "C";
                 EventListViewButton.Content = "L";
-                NotifyViewButton.Content = "P";
+                NotifyViewButton.Content = "P";             
             }  
             else
             {
-                MainMenu.Width = new GridLength(200);
+                MainMenu.Width = new GridLength(180);
                 AddEventViewButton.Content = "Dodaj event";
                 CallendarViewButton.Content = "Kalendarz";
                 EventListViewButton.Content = "Lista Eventów";

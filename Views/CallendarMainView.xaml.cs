@@ -29,6 +29,7 @@ namespace PlanKalendarz.Views
         private void DatesChenged(object sender, SelectionChangedEventArgs e)
         {
             AddActiveEvent.IsEnabled = true;
+            AddActiveQuickEvent.IsEnabled = true;
             bool contentChanged = false;
             DateTime selectedDate = (DateTime)MainViewCallendar.SelectedDate;
 
@@ -49,6 +50,12 @@ namespace PlanKalendarz.Views
         {
             DateTime selectedDate = (DateTime)MainViewCallendar.SelectedDate;
             Application.Current.MainWindow.DataContext = new AddActiveEventView(selectedDate);
+        }
+
+        private void AddActiveQuickEvent_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime selectedDate = (DateTime)MainViewCallendar.SelectedDate;
+            Application.Current.MainWindow.DataContext = new AddActiveQuickEventView(selectedDate);
         }
     }
 }

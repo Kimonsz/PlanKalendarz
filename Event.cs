@@ -20,7 +20,9 @@ namespace PlanKalendarz
         bool notes;
         bool checklist;
         bool? notifyBefore;      // false=przed   true=po
-                                 // 0=NULL -1=False 1=True
+
+
+        // 0=NULL -1=False 1=True
 
 
         public Event(string name, DateTime eventTime, DateTime eventReminder, List<string> eventChecklist, List<string> eventNotes, int eventCyclesNumber)
@@ -86,6 +88,42 @@ namespace PlanKalendarz
                 this.notifyMinute = 0;
 
         }
+
+        public Event(string name, bool? notInfo, DateTime pickedDate, string notifyDay, string notifyHour, string notifyMinute, List<string> checklist, string note)
+        {
+            this.name = name;
+            this.notifyBefore = notInfo;
+            this.eventTime = pickedDate;
+
+            //set notify info
+            if (!string.IsNullOrEmpty(notifyDay))
+                this.notifyDay = Convert.ToInt32(notifyDay);
+            else
+                this.notifyDay = 0;
+
+            if (!string.IsNullOrEmpty(notifyHour))
+                this.notifyHour = Convert.ToInt32(notifyHour);
+            else
+                this.notifyHour = 0;
+
+            if (!string.IsNullOrEmpty(notifyMinute))
+                this.notifyMinute = Convert.ToInt32(notifyMinute);
+            else
+                this.notifyMinute = 0;
+
+            //set checklist
+            if (checklist != null)
+                this.eventChecklist = checklist;
+            else
+                this.eventChecklist = new();
+
+            eventNotes = new();
+            if(note!=null)
+                eventNotes.Add(note);
+
+
+        }
+
         public string GetNotificationDate(DateTime choosenTime)
         {
             this.SetNotificationDate(choosenTime);

@@ -29,11 +29,15 @@
         <DataTemplate x:Name="AddActiveEventTemplate" DataType="{x:Type viewmodels:AddActiveEventViewModel}">
             <views:AddActiveEventView DataContext="{Binding}"/>
         </DataTemplate>
+        
+        <DataTemplate x:Name="AddActiveQuickEventTemplate" DataType="{x:Type viewmodels:AddActiveQuickEventViewModel}">
+            <views:AddActiveQuickEventView DataContext="{Binding}"/>
+        </DataTemplate>
 
     </Window.Resources>
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="MainMenu" Width="200"/>
+            <ColumnDefinition x:Name="MainMenu" Width="180"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <DockPanel Background="LightGray" Grid.Column="0">

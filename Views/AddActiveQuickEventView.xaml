@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="PlanKalendarz.Views.AddActiveQuickEventView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PlanKalendarz.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid Background="Azure">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+
+        </Grid.RowDefinitions>
+
+
+        <DockPanel Margin="10" Grid.Row="0">
+            <Label Content="Nazwa Eventu :" Margin="0,0,10,0" FontSize="18"/>
+            <TextBox x:Name="EventNameBox" Width="400" HorizontalAlignment="Left" FontSize="16" Height="30" VerticalAlignment="Top" Margin="0,5,0,0"/>
+        </DockPanel>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel>
+                <Label Grid.Row="1" Content="Powiadomienie :" FontSize="18" Margin="10,0,0,0"/>
+                <DockPanel>
+                    <ComboBox x:Name="NotifyBool" Width="105" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,10,0,0">
+                        <ComboBoxItem Content="Po evencie"/>
+                        <ComboBoxItem Content="Przed eventem"/>
+                    </ComboBox>
+                    <Label Content="Dni :" FontSize="18" Margin="10,5,0,0"/>
+                    <TextBox x:Name="NotifyDay" Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10,0,0,0" />
+                    <Label Content="Godziny :" FontSize="18" Margin="10,5,0,0"/>
+                    <TextBox x:Name="NotifyHour" Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10,0,0,0" />
+                    <Label Content="Minuty :" FontSize="18" Margin="0,5,0,0"/>
+                    <TextBox x:Name="NotifyMinute" Width="40" Height="20" PreviewTextInput="NumbersOnly" HorizontalAlignment="Left" Margin="10,0,0,0" />
+                </DockPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="2">
+            <Label Content="Checklista :" FontSize="18" Margin="10,0,0,0"/>
+            <DockPanel>
+                <TextBox x:Name="CheckListElement" Width="400" HorizontalAlignment="Left" FontSize="16" Height="30" VerticalAlignment="Top" Margin="10,5,0,0"/>
+                <Button x:Name="AddtoChecklist" Content="Dodaj" Width="70" Height="30" FontSize="18" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+            </DockPanel>
+            <ListBox x:Name="PreviewOfChecklist" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="400" Height="80" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+        </StackPanel>
+        <DockPanel Grid.Row="3">
+            <Label Content="Notatki :" FontSize="18" Margin="10,0,0,0" DockPanel.Dock="Top"/>
+            <TextBox x:Name="TakeNote" Width="400" HorizontalAlignment="Left" FontSize="16" Height="80" VerticalAlignment="Top" Margin="10,0,0,0"/>
+            <Button x:Name="ConfirmAdd" Content="Dodaj Event" Width="110" Height="30" FontSize="18" Click="ConfirmAdd_Click" HorizontalAlignment="Right" Margin="0,0,40,0"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

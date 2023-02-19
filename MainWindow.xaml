@@ -11,11 +11,11 @@
     <Window.Resources>
         <!--nazwy views inne niż w folderze bo po zmianie nazwy nie widzi nowych-->
         <DataTemplate x:Name="CallenarMainViewTemplate" DataType="{x:Type viewmodels:CallendarMainViewModel}">
-            <views:KalendarzMain DataContext="{Binding}"/> 
+            <views:CallendarMain DataContext="{Binding}"/>
         </DataTemplate>
-        
-        <DataTemplate x:Name="AddEventViewTemplate" DataType="{x:Type viewmodels:AddEventViewModel}">
-            <views:DodawanieEventu DataContext="{Binding}"/>
+
+        <DataTemplate x:Name="AddEventViewTemplate" DataType="{x:Type viewmodels:AddQuickEventViewModel}">
+            <views:AddQuickEventView DataContext="{Binding}"/>
         </DataTemplate>
 
         <DataTemplate x:Name="EventListViewTemplate" DataType="{x:Type viewmodels:EventListViewModel}">
@@ -29,18 +29,20 @@
         <DataTemplate x:Name="AddActiveEventTemplate" DataType="{x:Type viewmodels:AddActiveEventViewModel}">
             <views:AddActiveEventView DataContext="{Binding}"/>
         </DataTemplate>
+
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition x:Name="MainMenu" Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <DockPanel Background="LightGray" Grid.Column="0">
+            <Button x:Name="MenuHideButton" DockPanel.Dock="Top" Width="30" Height="30" HorizontalAlignment="Right" Click="MenuHideButtonClick">X</Button>
             <StackPanel>
-                <Button Content="Dodaj event" Margin="10,30,10,20" Height="30" FontSize="18" Click="EventCick"/>
-                <Button Content="Kalendarz" Margin="10,0,10,20" Height="30" FontSize="18" Click="BackClick"/>
-                <Button Content="Lista Eventów" Margin="10,0,10,20" Height="30" FontSize="18" Click="EventListClick"/>
-                <Button Content="Powiadomienia" Margin="10,0,10,20" Height="30" FontSize="18" Click="NotificationsClick"/>
+                <Button x:Name="AddEventViewButton" Content="Dodaj quick event" Margin="0,30,0,10" Height="30" FontSize="18" Click="EventCick"/>
+                <Button x:Name="CallendarViewButton" Content="Kalendarz" Margin="0,0,0,10" Height="30" FontSize="18" Click="BackClick"/>
+                <Button x:Name="EventListViewButton" Content="Lista Eventów" Margin="0,0,0,10" Height="30" FontSize="18" Click="EventListClick"/>
+                <Button x:Name="NotifyViewButton" Content="Powiadomienia" Margin="0,0,0,10" Height="30" FontSize="18" Click="NotificationsClick"/>
             </StackPanel>
         </DockPanel>
         <ContentControl x:Name="MainViewContentHolder" Grid.Column="1" Content="{Binding}"/>

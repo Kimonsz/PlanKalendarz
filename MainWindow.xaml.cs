@@ -35,7 +35,7 @@ namespace PlanKalendarz
 
         private void EventCick(object sender, RoutedEventArgs e)
         {
-            DataContext = new AddEventViewModel();
+            DataContext = new AddQuickEventViewModel();
         }
 
         private void BackClick(object sender, RoutedEventArgs e)
@@ -51,6 +51,28 @@ namespace PlanKalendarz
         private void NotificationsClick(object sender, RoutedEventArgs e)
         {
             DataContext = new NotificationsViewModel();
+        }
+
+        private void MenuHideButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (MainMenu.Width.Value == 200)
+            {
+                MainMenu.Width = new GridLength(30);
+                AddEventViewButton.Content = "E";
+                CallendarViewButton.Content = "C";
+                EventListViewButton.Content = "L";
+                NotifyViewButton.Content = "P";
+            }  
+            else
+            {
+                MainMenu.Width = new GridLength(200);
+                AddEventViewButton.Content = "Dodaj event";
+                CallendarViewButton.Content = "Kalendarz";
+                EventListViewButton.Content = "Lista Eventów";
+                NotifyViewButton.Content = "Powiadomienia";
+            }
+                
+
         }
     }
 }

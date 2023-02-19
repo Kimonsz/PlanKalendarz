@@ -49,9 +49,12 @@ namespace PlanKalendarz.Views
 
         private void ConfirmAdd_Click(object sender, RoutedEventArgs e)
         {
-            choosenEvent.EventTime=pickedDate;
-            CallendarClass.activeEvents.Add(choosenEvent);
-            Application.Current.MainWindow.DataContext = new KalendarzMain(); //inna nazwa przez błędy projektu
+            //create event with actualized data
+            Event activeEvent = new Event(choosenEvent, pickedDate);
+
+            //add to activeEvents and actualize View
+            CallendarClass.activeEvents.Add(activeEvent);
+            Application.Current.MainWindow.DataContext = new CallendarMain(); 
         }
 
         private void EventChoosen(object sender, SelectionChangedEventArgs e)
@@ -64,15 +67,14 @@ namespace PlanKalendarz.Views
                 throw;
             }
 
-            // false=przed   true=po
-            // 0=NULL -1=False 1=True
+            // 0=NULL   -1=False=przed     1=True=po
             int notifyInfo = choosenEvent.GetNotifyInfo();
             if (notifyInfo!=0)
             {
                 NotificationDateLabel.Content = choosenEvent.GetNotificationDate(pickedDate);
             }
 
-            //clearing form stage
+            //clearing form 
             CheckListElement.Text = string.Empty;
             checklistPreview.Clear();
             PreviewOfChecklist.ItemsSource = checklistPreview;

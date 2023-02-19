@@ -33,6 +33,22 @@ namespace PlanKalendarz
             this.eventCyclesNumber = eventCyclesNumber;
         }
 
+        public Event(Event x, DateTime data) //copying contructor with date (to add active event)
+        {
+            name = x.name;
+            eventTime = data;
+            eventReminder = x.eventReminder;
+            eventChecklist = x.EventChecklist;
+            eventNotes = x.eventNotes;
+            eventCyclesNumber = x.eventCyclesNumber;
+            notifyHour = x.notifyHour;
+            notifyDay = x.notifyDay;
+            notifyMinute = x.notifyMinute;
+            notes = x.notes;
+            checklist  = x.checklist;
+            notifyBefore = x.notifyBefore;
+    }
+
         public Event(string name)
         {
             this.name = name;

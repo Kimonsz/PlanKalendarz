@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlanKalendarz.ViewModels
 {
-    public class AddEventViewModel
+    public class AddQuickEventViewModel
     {
     }
 }

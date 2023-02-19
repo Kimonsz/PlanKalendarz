@@ -19,9 +19,9 @@ namespace PlanKalendarz.Views
     /// <summary>
     /// Logika interakcji dla klasy KalendarzMain.xaml
     /// </summary>
-    public partial class KalendarzMain : UserControl
+    public partial class CallendarMain : UserControl
     {
-        public KalendarzMain()
+        public CallendarMain()
         {
             InitializeComponent();
         }
@@ -29,12 +29,20 @@ namespace PlanKalendarz.Views
         private void DatesChenged(object sender, SelectionChangedEventArgs e)
         {
             AddActiveEvent.IsEnabled = true;
+            bool contentChanged = false;
             DateTime selectedDate = (DateTime)MainViewCallendar.SelectedDate;
+
             foreach(Event x in CallendarClass.activeEvents)
             {
                 if (selectedDate == x.EventTime)
+                {
                     DisplayEventName.Content = x.Name;
+                    contentChanged = true;
+                }
+                    
             }
+            if (!contentChanged)
+                DisplayEventName.Content = "";
         }
 
         private void AddActiveEvent_Click(object sender, RoutedEventArgs e)

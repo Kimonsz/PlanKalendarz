@@ -19,9 +19,9 @@ namespace PlanKalendarz.Views
     /// <summary>
     /// Logika interakcji dla klasy DodawanieEventu.xaml
     /// </summary>
-    public partial class DodawanieEventu : UserControl
+    public partial class AddQuickEventView : UserControl
     {
-        public DodawanieEventu()
+        public AddQuickEventView()
         {
             InitializeComponent();
         }
@@ -48,7 +48,7 @@ namespace PlanKalendarz.Views
                 checklistBool = false;
             }
 
-            if (NotifyBool.SelectedIndex==-1)
+            if (NotifyBool.SelectedIndex == -1)
             {
                 CallendarClass.AddEventViewModel(EventNameBox.Text, notesBool, checklistBool);
             }
@@ -62,13 +62,13 @@ namespace PlanKalendarz.Views
                 else if (NotifyBool.SelectedIndex == 1)
                 {
                     notifyBool = true;
-                }      
+                }
 
                 //string name, bool notes, bool checklist,bool notifybefore,string notifyDay, string notifyHour,string notifyMinute
                 CallendarClass.AddEventViewModel(EventNameBox.Text, notesBool, checklistBool, notifyBool, NotifyDay.Text, NotifyHour.Text, NotifyMinute.Text);
             }
-            
-            
+
+
             EventNameBox.Text = null;
             NotifyBool.SelectedIndex = -1;
             EventChecklistCheckBox.IsChecked = false;

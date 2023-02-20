@@ -55,5 +55,12 @@ namespace PlanKalendarz.Views
             DateTime selectedDate = (DateTime)MainViewCallendar.SelectedDate;
             Application.Current.MainWindow.DataContext = new AddActiveQuickEventView(selectedDate);
         }
+
+        private void DisplayEventName_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var x = DisplayEventName.SelectedItem;
+            Application.Current.MainWindow.DataContext = new DisplayEventPropertiesView();
+
+        }
     }
 }

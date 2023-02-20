@@ -89,5 +89,6 @@ namespace PlanKalendarz.Views
                 checklist.Add(CheckListElement.Text);
             }
         }
+        
     }
 } 

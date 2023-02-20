@@ -18,7 +18,7 @@
         <Viewbox Grid.Row="0" Grid.Column="0">
             <Calendar x:Name="MainViewCallendar" SelectedDatesChanged="DatesChenged"></Calendar>
         </Viewbox>
-        <ListBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"  ScrollViewer.VerticalScrollBarVisibility="Visible" Background="Azure" x:Name="DisplayEventName"/>
+        <ListBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="Azure" x:Name="DisplayEventName" MouseDoubleClick="DisplayEventName_MouseDoubleClick"/>
 
         <DockPanel Grid.Row="1">
             <Button  IsEnabled="False" x:Name="AddActiveEvent" Width="160" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Content="Dodaj Event" FontSize="18" Click="AddActiveQuickEvent_Click"/>

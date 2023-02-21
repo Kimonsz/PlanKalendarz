@@ -11,7 +11,7 @@ namespace PlanKalendarz
         String name;
         DateTime eventTime;
         private DateTime eventReminder;
-        List<String> eventChecklist;
+        List<ChecklistItem> eventChecklist;
         List<String> eventNotes;
         int eventCyclesNumber;
         int notifyHour;
@@ -20,9 +20,8 @@ namespace PlanKalendarz
         bool notes;
         bool checklist;
         bool? notifyBefore;      // false=przed   true=po
-
-
-        // 0=NULL -1=False 1=True
+                                 // 0=NULL -1=False 1=True
+        
 
 
         public Event(string name, DateTime eventTime, DateTime eventReminder, List<string> eventChecklist, List<string> eventNotes, int eventCyclesNumber)
@@ -30,7 +29,8 @@ namespace PlanKalendarz
             this.name = name;
             this.eventTime = eventTime;
             this.eventReminder = eventReminder;
-            this.eventChecklist = eventChecklist;
+            foreach (string x in eventChecklist)
+                this.eventChecklist.Add(new ChecklistItem(x));
             this.eventNotes = eventNotes;
             this.eventCyclesNumber = eventCyclesNumber;
         }
@@ -40,7 +40,7 @@ namespace PlanKalendarz
             name = x.name;
             eventTime = data;
             eventReminder = x.eventReminder;
-            eventChecklist = x.EventChecklist;
+            eventChecklist = x.eventChecklist;
             eventNotes = x.eventNotes;
             eventCyclesNumber = x.eventCyclesNumber;
             notifyHour = x.notifyHour;
@@ -94,6 +94,7 @@ namespace PlanKalendarz
             this.name = name;
             this.notifyBefore = notInfo;
             this.eventTime = pickedDate;
+            this.eventChecklist = new();
 
             //set notify info
             if (!string.IsNullOrEmpty(notifyDay))
@@ -113,7 +114,10 @@ namespace PlanKalendarz
 
             //set checklist
             if (checklist != null)
-                this.eventChecklist = checklist;
+            {
+                foreach (string x in checklist)
+                    this.eventChecklist.Add(new ChecklistItem(x));
+            }
             else
                 this.eventChecklist = new();
 
@@ -168,11 +172,6 @@ namespace PlanKalendarz
             get => eventReminder; 
             set => eventReminder = value; 
         }
-        public List<string> EventChecklist 
-        { 
-            get => eventChecklist; 
-            set => eventChecklist = value; 
-        }
         public List<string> EventNotes 
         { 
             get => eventNotes; 
@@ -183,6 +182,8 @@ namespace PlanKalendarz
             get => eventCyclesNumber; 
             set => eventCyclesNumber = value; 
         }
+        public List<ChecklistItem> EventChecklist { get => eventChecklist; set => eventChecklist = value; }
+
         public int GetNotifyInfo() 
         {
             // 0=NULL -1=False 1=True

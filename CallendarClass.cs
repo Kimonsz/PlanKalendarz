@@ -63,5 +63,17 @@ namespace PlanKalendarz
             return null;
         }
 
+        public static Event GetActiveEventByName(string name)
+        {
+            foreach (Event x in activeEvents)
+            {
+                if (x.Name.Equals(name))
+                {
+                    return x;
+                }
+            }
+            return null;
+        }
+
     }
 }

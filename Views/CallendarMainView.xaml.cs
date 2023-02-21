@@ -59,7 +59,7 @@ namespace PlanKalendarz.Views
         private void DisplayEventName_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var x = DisplayEventName.SelectedItem;
-            Application.Current.MainWindow.DataContext = new DisplayEventPropertiesView();
+            Application.Current.MainWindow.DataContext = new DisplayEventPropertiesView(CallendarClass.GetActiveEventByName((string)x));
 
         }
     }

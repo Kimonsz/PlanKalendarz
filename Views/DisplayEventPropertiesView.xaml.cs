@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,19 @@ namespace PlanKalendarz.Views
         public DisplayEventPropertiesView()
         {
             InitializeComponent();
+        }
+        public DisplayEventPropertiesView(Event choosenEvent)
+        {
+            InitializeComponent();
+            ObservableCollection<ChecklistItem> checklistCollection = new ObservableCollection<ChecklistItem>();
+            foreach (ChecklistItem x in choosenEvent.EventChecklist)
+                checklistCollection.Add(x);
+            Resources["ChecklistCollection"] = checklistCollection;
+        }
+
+        private void LabelLoaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

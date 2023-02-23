@@ -32,11 +32,9 @@ namespace PlanKalendarz.Views
             foreach (ChecklistItem x in choosenEvent.EventChecklist)
                 checklistCollection.Add(x);
             Resources["ChecklistCollection"] = checklistCollection;
-        }
-
-        private void LabelLoaded(object sender, RoutedEventArgs e)
-        {
-
+            EventNameLabel.Content = choosenEvent.Name;
+            EventNotes.Text = choosenEvent.EventNotes[0];
+            
         }
     }
 }

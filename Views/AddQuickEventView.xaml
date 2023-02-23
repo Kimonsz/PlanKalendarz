@@ -43,11 +43,11 @@
         
         <DockPanel Grid.Row="2">
             <Label Content="Checklista :" FontSize="18" Margin="10,0,0,0"/>
-            <RadioButton Name="EventChecklistCheckBox" Margin="10"/>
+            <CheckBox Name="EventChecklistCheckBox" Margin="10"/>
         </DockPanel>
         <DockPanel Grid.Row="3">
             <Label Content="Notatki :" FontSize="18" Margin="10,0,0,0"/>
-            <RadioButton Name="EventNotesCheckBox" Margin="10"/>
+            <CheckBox Name="EventNotesCheckBox" Margin="10"/>
         </DockPanel>
         <DockPanel Grid.Row="4">
             <Button x:Name="ConfirmAdd" Content="Dodaj" Width="70" Height="30" FontSize="18" Click="DodajEvent" HorizontalAlignment="Right" Margin="0,0,40,0"/>
